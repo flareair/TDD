@@ -4,6 +4,7 @@ describe('ArrayHelper test', () => {
     let arrHelper;
 
     beforeEach(() => {
+        // create test sandbox
         sinon.sandbox.create();
         arrHelper = new ArrayHelper();
     });
@@ -62,6 +63,7 @@ describe('ArrayHelper test', () => {
         let sumStub;
 
         beforeEach(() => {
+            // create stub of sum() method
             sumStub = sinon.stub();
             arrHelper.sum = sumStub;
         });
@@ -73,6 +75,7 @@ describe('ArrayHelper test', () => {
 
         it('should use sum method', () => {
             arrHelper.sumMultiple([1, 2], [3, 1], [2, 5]);
+            // check that stab was called
             assert.isTrue(sumStub.called);
         });
 
@@ -100,6 +103,7 @@ describe('ArrayHelper test', () => {
     });
 
     afterEach(() => {
+        // restore sandbox every time
         sinon.sandbox.restore();
     });
 });
