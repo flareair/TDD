@@ -1,3 +1,4 @@
 # TDD example
 
-Run `karma start`
+Run `karma start` (require global karma-cli installation)
+
