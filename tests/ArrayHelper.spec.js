@@ -59,15 +59,36 @@ describe('ArrayHelper test', () => {
 
 
     describe('sumMultiple() method', () => {
+        let sumStub;
+
+        beforeEach(() => {
+            sumStub = sinon.stub();
+            arrHelper.sum = sumStub;
+        });
 
         it('should exist', () => {
             assert.isDefined(arrHelper.sumMultiple);
         });
 
 
+        it('should use sum method', () => {
+            arrHelper.sumMultiple([1, 2], [3, 1], [2, 5]);
+            assert.isTrue(sumStub.called);
+        });
+
+
         it('should return sum of all values of multiple given arrays', () => {
+            // stub will be invoked 3 times, because we pass 3 arrays
+            sumStub.onCall(0).returns(3);
+            sumStub.onCall(1).returns(4);
+            sumStub.onCall(2).returns(7);
             assert.strictEqual(arrHelper.sumMultiple([1, 2], [3, 1], [2, 5]), 14);
+            // stub will be invoked 2 times, because we pass 2 arrays
+            sumStub.onCall(3).returns(20);
+            sumStub.onCall(4).returns(33);
             assert.strictEqual(arrHelper.sumMultiple([20, -3, 3], [33]), 53);
+            // only one time now
+            sumStub.onCall(5).returns(26);
             assert.strictEqual(arrHelper.sumMultiple([123, -100, 3]), 26);
         });
 
