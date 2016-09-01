@@ -57,6 +57,27 @@ describe('ArrayHelper test', () => {
 
     });
 
+
+    describe('sumMultiple() method', () => {
+
+        it('should exist', () => {
+            assert.isDefined(arrHelper.sumMultiple);
+        });
+
+
+        it('should return sum of all values of multiple given arrays', () => {
+            assert.strictEqual(arrHelper.sumMultiple([1, 2], [3, 1], [2, 5]), 14);
+            assert.strictEqual(arrHelper.sumMultiple([20, -3, 3], [33]), 53);
+            assert.strictEqual(arrHelper.sumMultiple([123, -100, 3]), 26);
+        });
+
+        it('should throw error if there is no args', () => {
+            assert.throws(() => {
+                arrHelper.sumMultiple();
+            }, TypeError, 'Expect list of arrays, instead got nothing');
+        });
+    });
+
     afterEach(() => {
         sinon.sandbox.restore();
     });

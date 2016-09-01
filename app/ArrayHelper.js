@@ -27,6 +27,22 @@ let ArrayHelper = (function() {
                 return total + current;
             }, 0);
         };
+
+        /**
+         * Sums values in multiple arrays
+         * @return {number} sum result
+         */
+        this.sumMultiple = function sumMultiple() {
+
+            if (arguments.length <= 0) {
+                throw new TypeError('Expect list of arrays, instead got nothing');
+            }
+
+            let arrays = Array.prototype.slice.call(arguments);
+            let sums = arrays.map(this.sum.bind(this));
+
+            return sums.reduce((sum, current) => sum + current, 0);
+        };
     }
 
     return ArrayHelper;
