@@ -15,7 +15,15 @@ let ArrayHelper = (function() {
             if (!Array.isArray(arr)) {
                 throw new TypeError('Expect array, instead get ' + typeof arr);
             }
+
+            if (arr.length <= 0) {
+                throw new TypeError('Array can not be empty');
+            }
+
             return arr.reduce((total, current) => {
+                if (Number(current) !== current) {
+                    throw new TypeError('Array contain not number values');
+                }
                 return total + current;
             }, 0);
         };
