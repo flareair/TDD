@@ -4,6 +4,7 @@ describe('ArrayHelper test', () => {
     let arrHelper;
 
     beforeEach(() => {
+        sinon.sandbox.create();
         arrHelper = new ArrayHelper();
     });
 
@@ -54,5 +55,9 @@ describe('ArrayHelper test', () => {
         });
 
 
+    });
+
+    afterEach(() => {
+        sinon.sandbox.restore();
     });
 });
