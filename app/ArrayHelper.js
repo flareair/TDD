@@ -1,9 +1,6 @@
-/**
- * Array helper class, includes several useful helpers
- */
+/*global define*/
 
-let ArrayHelper = (function() {
-
+define(() => {
     function ArrayHelper() {
         /**
          * Calculate sum of array items
@@ -46,4 +43,6 @@ let ArrayHelper = (function() {
     }
 
     return ArrayHelper;
-})();
+});
+
+
