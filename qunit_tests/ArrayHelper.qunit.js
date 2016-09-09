@@ -1,9 +1,10 @@
 /*global deepEqual, ok, sinon, throws*/
 /*global ArrayHelper*/
 
-(function() {
+define(['sinon', 'app/modules/ArrayHelper'], (sinon, ArrayHelper)=> {
     var arrayHelper;
     var sumStub;
+    console.log(sinon);
     module('ArrayHelper module', {
         setup: function () {
             // create sinon sandbox
@@ -128,4 +129,4 @@
         },  /Expect list of arrays, instead got nothing/);
     });
 
-})();
+});
