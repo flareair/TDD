@@ -1,6 +1,6 @@
 /*global define*/
 
-define(['./ArrayHelper'], (ArrayHelper) => {
+define(['modules/ArrayHelper'], (ArrayHelper) => {
     var arrayHelper = new ArrayHelper();
 
     console.log(arrayHelper.sum([1, 2, 3]));
